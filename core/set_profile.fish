@@ -7,9 +7,6 @@ function set_profile
 
     # default programs
     set -gx EDITOR "nvim"
-    set -gx TERMINAL "foot"
-    set -gx BROWSER "opera"
-    set -gx BROWSER_MIN "luakit"
 
     # config
     set -gx XDG_CONFIG_HOME "$HOME/.config"
@@ -36,6 +33,9 @@ function set_profile
 
     if set -q _flag_ui
         set -gx DISPLAY ":0"
+        set -gx TERMINAL "foot"
+        set -gx BROWSER "opera"
+        set -gx BROWSER_MIN "luakit"
 
         # input for multilang
         set -gx XMODIFIERS "fcitx5"
