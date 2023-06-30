@@ -10,8 +10,11 @@ echo "---------"
 set_color normal
 #set -l options (fish_opt -s u -l ui)
 #set options $options (fish_opt -s c -l clean)
-
-set script_path (dirname (status -f))
+if set -q YU_DIR 
+    echo "YU_DIR already set: $YU_DIR"
+else
+    set -Ux YU_DIR (pwd)
+end
 
 # check if .config/fish/functions exists
 if not test -d ~/.config/fish/functions
@@ -34,7 +37,7 @@ if set -q _flag_ui
 end
 for category in $categories
     echo "copying"(set_color brblue)" $category "(set_color normal)"scripts"
-    for file in $script_path/$category/*.fish
+    for file in $YU_DIR/$category/*.fish
         cp $file ~/.config/fish/functions/
         echo (set_color blue) '鱼' (set_color brblue) '~' (set_color normal) (basename $file)
     end
