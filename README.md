@@ -1,3 +1,3 @@
 # 鱼
 
-my fish scripts
+ dotfile manager written in fish ~>
